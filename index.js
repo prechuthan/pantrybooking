@@ -5,7 +5,11 @@ $(document).ready(function () {
   // When red button is clicked
   $("#launchbutton").on("click", function () {
     // Track button clicked
-    window.umami.track("cs-bigredbtn-clicked");
+    try {
+      window.umami.track("cs-bigredbtn-clicked");
+    } catch (error) {
+      console.log("Ad Blocker is blicking Umami! [cs-bigredbtn-clicked]");
+    }
 
     // Increase click count by 1
     if (clickCount < clickText.length - 1) {
@@ -13,7 +17,13 @@ $(document).ready(function () {
     }
 
     // Track click count
-    window.umami.track(`cs-bigredbtn-click-${clickCount}`);
+    try {
+      window.umami.track(`cs-bigredbtn-click-${clickCount}`);
+    } catch (error) {
+      console.log(
+        `Ad Blocker is blicking Umami! [cs-bigredbtn-click-${clickCount}]`
+      );
+    }
 
     // Animate button press
     $("#launchbutton").addClass("pressed");

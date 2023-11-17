@@ -8,27 +8,73 @@ h1 {
     font-size: 3rem;
 }
 
+a {
+    transition: color .1s ease-in-out;
+}
+
 a:visited {
     color: inherit;
 }
 
-.container {
+a:hover {
+    color: rgba(40, 47, 67, 0.5);
+}
+
+.comingsoon-container {
     display: grid;
     place-items: center;
     min-height: 100vh;
-    background-color: (246, 247, 252);
 }
 
-.container > h1 {
+.comingsoon-container > h1 {
     font-weight: 700;
+    font-size: 2rem;
 }
 
-.container > h2 {
+.comingsoon-container > h2 {
     color: #293044;
 }
 
-.container > div {
+.comingsoon-container > div {
     display: grid;
     place-items: center;
+}
+
+.comingsoon-container > p {
+    text-align: center;
+}
+
+/* Inspired by https://codepen.io/dudleystorey/pen/LYyrdO */
+.bigredbutton { 
+    border-radius: 50%; 
+    width: 200px;
+    height: 200px;
+    border: none;
+    color: white;
+    font-family: "Inter", sans-serif;
+    font-weight: 900;
+    font-size: 2rem;
+    background: red;
+    text-shadow: 0 3px 1px rgba(122,17,8,.8);
+    box-shadow: 0 8px 0 rgb(183,9,0), 
+      0 15px 20px rgba(0,0,0,.35);
+    transition: .4s all ease-in;
+    outline: none; 
+    cursor: pointer;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.bigredbutton span { 
+    position: relative; 
+} 
+
+.pressed { 
+    padding-top: 3px;
+    transform: translateY(4px);
+    box-shadow: 0 4px 0 rgb(183,0,0),
+        0 8px 6px rgba(0,0,0,.45);
 }
 

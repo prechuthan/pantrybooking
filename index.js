@@ -1,14 +1,19 @@
 // When page has loaded
 $(document).ready(function () {
-  var clickCount = -1;
+  var clickCount = 0;
 
   // When red button is clicked
   $("#launchbutton").on("click", function () {
+    // Track button clicked
+    umami.track("cs-bigredbtn-clicked");
+
     // Increase click count by 1
     if (clickCount < clickText.length - 1) {
       clickCount = clickCount + 1;
-    } else {
     }
+
+    // Track click count
+    umami.track(`cs-bigredbtn-click-${clickCount}`);
 
     // Animate button press
     $("#launchbutton").addClass("pressed");
@@ -16,9 +21,9 @@ $(document).ready(function () {
       $("#launchbutton").removeClass("pressed");
     }, 300);
 
-    document.getElementById(
-      "comingsoon-text"
-    ).innerHTML = `${clickText[clickCount]}`;
+    document.getElementById("comingsoon-text").innerHTML = `${
+      clickText[clickCount - 1]
+    }`;
   });
 });
 
@@ -114,5 +119,5 @@ var clickText = [
   "Just kidding. Click again!",
   "Ok fine I give up, you win!!!!!",
   "Now please fill up that form... ❤️",
-  '<a href="https://go.gov.sg/pantrybooking-comingsoon" target="_blank">Let me know</a> what you like to see for <b>pantrybooking</b>! 😊',
+  '<a href="https://go.gov.sg/pantrybooking-comingsoon" target="_blank" data-umami-event="cs-form-bigredbtn">Let me know</a> what you like to see for <b>pantrybooking</b>! 😊',
 ];

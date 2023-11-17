@@ -5,7 +5,7 @@ $(document).ready(function () {
   // When red button is clicked
   $("#launchbutton").on("click", function () {
     // Track button clicked
-    umami.track("cs-bigredbtn-clicked");
+    window.umami.track("cs-bigredbtn-clicked");
 
     // Increase click count by 1
     if (clickCount < clickText.length - 1) {
@@ -13,7 +13,7 @@ $(document).ready(function () {
     }
 
     // Track click count
-    umami.track(`cs-bigredbtn-click-${clickCount}`);
+    window.umami.track(`cs-bigredbtn-click-${clickCount}`);
 
     // Animate button press
     $("#launchbutton").addClass("pressed");

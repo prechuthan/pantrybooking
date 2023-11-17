@@ -6,7 +6,7 @@ $(document).ready(function () {
   $("#launchbutton").on("click", function () {
     // Track button clicked
     try {
-      window.umami.track("cs-bigredbtn-clicked");
+      window.umami.track("cs-bigredbtn-total-clicks");
     } catch (error) {
       console.log("Ad Blocker is blicking Umami! [cs-bigredbtn-clicked]");
     }

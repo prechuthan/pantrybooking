@@ -12,7 +12,7 @@ $(document).ready(function () {
     }
 
     // Increase click count by 1
-    if (clickCount < clickText.length - 1) {
+    if (clickCount < clickText.length) {
       clickCount = clickCount + 1;
     }
 

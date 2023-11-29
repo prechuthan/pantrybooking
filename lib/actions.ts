@@ -1,6 +1,8 @@
 'use server';
 
 const { PrismaClient } = require('@prisma/client')
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
  
 export async function createBooking(formData: FormData) {
     const prisma = new PrismaClient();
@@ -27,9 +29,28 @@ export async function createBooking(formData: FormData) {
           },
       });
       console.log('Booking created:', booking);
+      // console.log('Booking created:', );
     } catch (error: any) {
         console.error(`Error creating booking: ${error.message}`);
     } finally {
         await prisma.$disconnect();
+        revalidatePath('/');
+        redirect('/')
     }
 }
+
+export async function getAllBookings() {
+    const prisma = new PrismaClient();
+
+    // Get all bookings
+    try {
+      const booking = await prisma.booking.findMany()
+      console.log('Bookings:', booking);
+      return booking
+    } catch (error: any) {
+        console.error(`Error getting bookings: ${error.message}`);
+    } finally {
+        await prisma.$disconnect();
+    }
+}
+

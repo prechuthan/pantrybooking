@@ -16,7 +16,7 @@ export default async function Upcoming() {
                 </Center>
                 {/* Stack of upcoming bookings */}
                 <VStack marginLeft='auto' marginRight='auto' maxW={400} spacing={5} align='stretch'>
-                    {bookings.map((booking) => (
+                    {bookings.map((booking:any) => (
                         <Booking key={booking.id} title={booking.title} day={booking.day} month={booking.month} year={booking.year} startTime={booking.startTime} endTime={booking.endTime}/>
                     ))};
                 </VStack>

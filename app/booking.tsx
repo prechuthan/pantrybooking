@@ -1,6 +1,6 @@
 import { Card, CardHeader, CardBody, Heading, Text } from "@chakra-ui/react"
 
-export default function Booking({ title, day, month, year, startTime, endTime }) {
+export default function Booking({ title, day, month, year, startTime, endTime }:any) {
     return (
         <Card>
             <CardHeader>

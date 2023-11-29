@@ -1,8 +1,8 @@
 'use client'
 
-import { Box, Button, Center, SimpleGrid, Select, Text } from "@chakra-ui/react";
+import { Box, Button, Center, Input, SimpleGrid, Select, Text } from "@chakra-ui/react";
 import { CalendarIcon } from '@chakra-ui/icons';
-import { createBooking } from "@/app/actions";
+import { createBooking } from "@/lib/actions";
 
 export default function Booking() {
     var days = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
@@ -16,15 +16,21 @@ export default function Booking() {
         <form action={createBooking}>
             <Center>
                 {/* Background gray box */}
-                <Box bg="gray.50" w="100%" h={400} p={4}>
+                <Box bg="gray.50" w="100%" h={450} p={4}>
                     <Center>
                         <Text color="gray.700" fontSize="4xl" my={[3, 5, 30]}>
                             Book the pantry in 
                             <Text as="b"> 20 seconds</Text>.
                         </Text>
                     </Center>
-                    {/* Date picker */}
+                    {/* Booking title */}
                     <Box maxW="600px" mx="auto" mt={8}>
+                    <SimpleGrid columns={1} spacing={1}>
+                        <Input name="bookingTitle" maxW="{2}" placeholder="Please type in your event name" />    
+                    </SimpleGrid>
+                    </Box>
+                    {/* Date picker */}
+                    <Box maxW="600px" mx="auto" mt={4}>
                     <SimpleGrid columns={3} spacing={1}>
                         <Select name="bookingDay" maxW="{2}" placeholder="Day">
                             {days.map((day) => 

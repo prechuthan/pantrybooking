@@ -2,6 +2,7 @@
  
 export async function createBooking(formData: FormData) {
     const rawFormData = {
+        bookingTitle: formData.get('bookingTitle'),
         bookingDay: formData.get('bookingDay'),
         bookingMonth: formData.get('bookingMonth'),
         bookingYear: formData.get('bookingYear'),
@@ -9,6 +10,5 @@ export async function createBooking(formData: FormData) {
         bookingEndTime: formData.get('bookingEndTime'),
       };
 
-      // Test it out:
       console.log(rawFormData);
 }
